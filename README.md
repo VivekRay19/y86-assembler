@@ -7,7 +7,16 @@ A robust two-pass assembler written in C for the **Y86-64 Architecture**. It tra
 * `Makefile` - Build script to compile the project easily.
 * `input.ys` - Sample Y86 assembly input file for testing.
 
-## 🛠️ How to Compile
-If you have `gcc` and `make` installed (Linux/WSL/Mac), simply run:
-```bash
-make
+## 🛠️ Installation & Usage
+
+### Prerequisites
+You need a C compiler (`gcc`) and `make` installed.
+- **Linux:** `sudo apt install build-essential`
+- **Mac:** `xcode-select --install`
+- **Windows:** Install MinGW or use WSL.
+
+### Compilation
+1. Open a terminal in the project directory.
+2. Run the make command:
+   ```bash
+   make
