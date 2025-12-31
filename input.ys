@@ -1,0 +1,127 @@
+#Test Case 1
+ #irmovl $5, %eax
+ #irmovl $10, %ebx
+ #addl %ebx, %eax
+ #halt
+#Output is: Bytes written: 15
+
+#Test Case 2
+ #irmovl $20, %eax
+ #irmovl $5, %ebx
+ #start:
+ #addl %ebx, %eax
+ #rrmovl %eax, %ecx
+ #rmmovl %ecx, (%esp)
+ #mrmovl (%esp), %edx
+ #subl %ebx, %edx
+ #jg start
+ #halt
+#Output is: Bytes written: 36
+
+#Test Case 3
+ #irmovl $15, %eax
+ #irmovl $3, %ebx
+ #addl %ebx, %eax
+ #subl %ebx, %eax
+ #andl %ebx, %eax
+ #xorl %ebx, %eax
+ #rmmovl %eax, (%esp)
+ #mrmovl (%esp), %ecx
+ #halt
+#Output is: Bytes written: 33
+
+#Test Case 4
+ #irmovl $0, %eax
+ #irmovl $5, %ebx
+ #start:
+ #addl %ebx, %eax
+ #subl %ebx, %eax
+ #je equal
+ #jne notequal
+ #equal:
+ #irmovl $100, %ecx
+ #jmp end
+ #notequal:
+ #irmovl $200, %ecx
+ #end:
+ #halt
+#Output is: Bytes written: 44
+
+#Test Case 5
+ #irmovl $10, %eax
+ #rmmovl %eax, (%esp)
+ #irmovl $0, %ebx
+ #mrmovl (%esp), %ebx
+ #halt
+#Output is: Bytes written: 25
+
+#Test Case 6
+  #irmovl $50, %eax
+  #rrmovl %eax, %ebx
+  #rrmovl %ebx, %ecx
+  #rrmovl %ecx, %edx
+  #halt
+#Output is: Bytes written: 13
+
+#Test Case 7
+ #irmovl $12, %eax
+ #irmovl $5, %ebx
+ #addl %ebx, %eax
+ #subl %ebx, %eax
+ #andl %ebx, %eax
+ #xorl %ebx, %eax
+ #halt
+#Output is: Bytes written: 21
+
+#Test Case 8
+ #.long 123456
+ #.byte 255
+ #halt
+#Output is: Bytes written: 5
+
+#Test Case 9
+ #irmovl $0, %eax
+ #irmovl $5, %ebx
+ #loop:
+ #addl %ebx, %eax
+ #subl %ebx, %eax
+ #jl less
+ #jle lesseq
+ #jge great
+ #jg greater
+ #je equal
+ #jne notequal
+ #less:
+ #irmovl $1, %ecx
+ #jmp end
+ #lesseq:
+ #irmovl $2, %ecx
+ #jmp end
+ #great:
+ #irmovl $3, %ecx
+ #jmp end
+ #greater:
+ #irmovl $4, %ecx
+ #jmp end
+ #equal:
+ #irmovl $5, %ecx
+ #jmp end
+ #notequal:
+ #irmovl $6, %ecx
+ #end:
+ #halt
+#Output is: Bytes written: 108
+
+#Test Case 10
+ #irmovl $10, %eax
+ #irmovl $20, %ebx
+ #addl %ebx, %eax
+ #rrmovl %eax, %ecx
+ #rmmovl %ecx, (%esp)
+ #mrmovl (%esp), %edx
+ #subl %ebx, %edx
+ #je end
+ #irmovl $999, %eax
+ #end:
+ #halt
+#Output is: Bytes written: 42
